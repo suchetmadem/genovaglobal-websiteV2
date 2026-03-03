@@ -1,15 +1,12 @@
 import type { Metadata } from 'next'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Send, Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
+import { ContactForm } from '@/components/contact-form'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -76,41 +73,7 @@ export default function ContactPage() {
               <h2 className="mb-6 font-serif text-2xl font-bold text-foreground">
                 Send us a message
               </h2>
-              <form
-                className="flex flex-col gap-5"
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-name">Name</Label>
-                    <Input id="contact-name" placeholder="Your name" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-email">Email</Label>
-                    <Input
-                      id="contact-email"
-                      type="email"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="contact-subject">Subject</Label>
-                  <Input id="contact-subject" placeholder="What is this about?" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="contact-message">Message</Label>
-                  <Textarea
-                    id="contact-message"
-                    placeholder="Tell us more..."
-                    rows={6}
-                  />
-                </div>
-                <Button type="submit" className="gap-2 self-start">
-                  Send Message
-                  <Send className="h-4 w-4" />
-                </Button>
-              </form>
+              <ContactForm />
             </div>
 
             {/* Contact Info */}
